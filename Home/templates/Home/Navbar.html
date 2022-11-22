@@ -1,0 +1,91 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'bootstrap/js/bootstrap.js' %}">
+</head>
+<body>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    .header{
+      /* margin: 3% 3; */
+      text-decoration: none;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background: #f3700c
+    }
+
+    .the-logo{
+      padding: 8px;
+      font-size: 1.8em;
+      font-weight: 600;
+      text-decoration: none;
+      color: #071380;
+    }
+
+    .the-menu{
+      text-decoration: none;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-left: 20px;
+      
+    }
+
+    .menu-item{
+      padding: 8px;
+      text-decoration: none;
+    }
+
+    .the-search{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .the-tagline{
+      color: #071380;
+      font-weight: 600;
+    }
+
+    .menu-item a{
+      color: #071380;
+      text-decoration: none;
+
+    }
+
+
+  </style>
+
+  <div class="header">
+    <div ><a class="the-logo" href="{% url 'home' %}">Rentee</a></div>
+    <ul class="the-menu">
+      {% if user.is_authenticated %}
+      <li class="menu-item"><a  href="/AddListing">Create Renting Ad</a></li>
+      <li class="menu-item"><a  href="/Authentication/Logout">Logout</a></li>
+      {% else %}
+      <li class="menu-item"><a  href="/Authentication/Login">Login</a></li>
+      <li class="menu-item"><a  href="/Authentication/Signup">Signup</a></li>
+      {% endif %}
+    </ul>
+  </div>
+
+
+</body>
+</html>
+
+

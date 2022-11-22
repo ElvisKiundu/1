@@ -1,0 +1,127 @@
+{% extends 'Home/Base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+  
+<style>
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .heading{
+    font-size: 1.2em;
+    font-weight: 800;
+    color: #071380;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+
+
+  .listing-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .listing{
+    display: flex;
+  }
+
+  .listing-image{
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+
+  .listing-details{
+    margin-left: 50px;
+  }
+
+  .listing-more-details{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+  }
+
+  .listing-gallery{
+    margin-left: 50px;
+  }
+
+  .listing-cost{
+    color: #f3700c ;
+    font-size: 1.5em;
+    font-weight: 600;
+    padding-bottom: 5px;
+  }
+    
+  .listing-name{
+    color: #071380;
+    font-weight: 900;
+    font-size: 2em;
+    text-decoration: underline;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .icon-name{
+    color: #000;
+    font-weight: 600;
+    padding-bottom: 5px;
+  }
+
+  .amenities-list{
+    margin-left: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+      .listing{
+        flex-direction: column;
+      }
+      .listing-image{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-left: auto;
+      }
+      .listing-details{
+        width:100%;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+      }
+    }
+
+</style>
+
+<p class="listing-name"> {{ listing.Name }} </p>
+<div class="listing-container">
+  <div class="listing">
+    <div class="listing-image"><img src="{{ listing.ListingImage.url }}"  alt=""></div>
+    <div class="listing-details">
+      <!-- <p class="heading">General property details</p> -->
+      <p class="listing-cost">Ksh {{ listing.MonthlyRate }}</p>
+      <!-- <p class="listing-name"> {{ listing.Name }} </p> -->
+      <p class="icon-name">{{ listing.NumberOfBedrooms }} bedrooms </p>
+      <p class="icon-name">{{ listing.AreaOccupied }} sqm</p>
+      <p class="icon-name">Located in {{listing.Location}} </p>
+    </div>
+  </div>
+  <div class="listing-gallery">(Image gallery slider)</div>
+  <div class="listing-more-details">
+    <p class="heading">Property Description</p>
+    <p>{{ listing.Description }}</p>
+
+    <!-- <p class="heading" >Amenities available</p>
+    <ul class="amenities-list">
+      <li>{{ Amenties }}</li>
+    </ul> -->
+  </div>
+</div>
+
+<br><br><br><br><br>
+
+{% endblock %}

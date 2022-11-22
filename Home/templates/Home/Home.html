@@ -1,0 +1,251 @@
+{% extends 'Home/Base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    /* ALL */
+    *{
+      font-family: sans-serif;
+      -webkit-column-break-inside: avoid;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    /* BODY */
+    body, html{
+      width: 100%;
+      height: 100%;
+    }
+
+
+
+    /* header */
+    .my-header{
+      border-bottom: 1px solid rgb(223, 216, 216);
+      border-radius: 5px;
+      max-height: 500px;
+      background: #f0ffff;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .my-search{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .my-tagline{
+          color: #071380;
+          font-weight: 600;
+          margin-top: 15px;
+        }
+    
+    
+
+      /* CATEGORY CONTAINER */
+      .category-icon{
+        list-style: none;
+        display: flex;
+      }
+    
+      .category-list-item{
+        padding: 30px;
+      }
+    
+      .search-button{
+        height: 8px;
+        margin-top: 5px;
+      }
+    
+
+
+    /* listing card and items */
+      .listing-icon{
+        text-decoration: none;
+      }
+    
+      .listing-cost{
+        color: #f3700c ;
+        font-size: 1.5em;
+        font-weight: 600;
+        padding-top: 5px;
+      }
+    
+      .listing-name{
+        color: #071380;
+        font-weight: 900;
+        font-size: 1.3em;
+        padding-top: 10px;
+      }
+
+      .bedrooms{
+        padding-top: 10px;
+        font-weight: bold;
+      }
+
+      .area{
+        padding-top: 10px;
+        font-weight: bold;
+      }
+
+      .location{
+        padding-top: 10px;
+        font-weight: bold;
+      }
+
+      .number{
+        font-weight: 600;
+        font-size: .8em;
+        padding-top: 10px;
+      }
+
+      .contact{
+        padding-top: 10px;
+        font-weight: bold;
+        font-size: 1.43em;
+        color:red;
+      }
+
+
+      /* New category */
+      .container{
+        width: 100%;
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+        border: 1px solid rgb(207, 205, 205);
+        margin-bottom: 5px;
+      }
+
+      .box{
+        width:50% ;
+        float: left;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 10px;
+        
+      }
+
+      .clearfix{
+        clear: both;
+      }
+
+      .listing-image{
+        width: 330px;
+        height: 200px;
+      }
+
+      .box2{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      @media screen and (max-width: 768px) {
+        .box1{
+          width:100%;
+          
+        }
+        .box2{
+          width: 100%;
+        }
+        .listing-image{
+          width: 250px;
+          height: 200px;
+          margin-left: auto;
+          padding: 5px;
+        }
+      }
+    
+    </style>
+    
+    
+    <div class="my-header">
+      <div class="my-search" >
+        <h3 class="my-tagline">The Hub Of Rental Property</h3>
+        <form style="margin-top:8px;" method="POST" class="my-search" action="{% url 'search-listing'%}">
+          {% csrf_token %}
+          <div style="margin-top:8px;">
+            <input type="text" placeholder="Search property, location" name="Searched">
+          </div>
+          <div style="margin: 11px; ">
+            <button type="submit" class="btn btn-primary" class="search-button" style="background-color: #f3700c; padding-top:5px; " >Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {% for listing in listings %}
+    <div class="container">
+      <div class="box box1" ><a href="{% url 'listing' listing.id %}"><img class="listing-image" src="{{ listing.ListingImage.url }}" width="333px" height="50px" class="img-fluid rounded-start" alt="..."></a></div>
+      <div class="box box2" >
+        <p class="card-text"> <span class="listing-name">{{ listing.Name }}</span></p>
+        <h5 class="card-title"><span class="listing-cost"> {{ listing.MonthlyRate }}/= Kes Per Month </span></h5>
+        <p class="bedrooms" > {{ listing.NumberOfBedrooms }} Bedrooms</p>
+        <p class="area" > {{ listing.AreaOccupied }} metres squared</p>
+        <p class="location" > {{ listing.Location }}</p>
+        <p class="number" > <span class="contact"> {{ listing.Contact }}</span> </p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    {% endfor %}
+    
+    <!-- <ul class="list-category-icon">
+      <li class="category-list-item category-list-item1"><a href=""><img style="display:flex" src="static/images/IMG_20221018_095532.jpg" width="80px" height="80px" alt=""> <p>Apartments</p></a></li>
+      <li class="category-list-item category-list-item2"><a href=""><img style="display:flex" src="static/images/IMG_20221018_095532.jpg" width="80px" height="80px" alt=""> <p>Homes</p></a></li>
+      <li class="category-list-item category-list-item3"><a href=""><img style="display:flex" src="static/images/IMG_20221018_095532.jpg" width="80px" height="80px" alt=""> <p>Offices</p></a></li>
+      <li class="category-list-item category-list-item4"><a href=""><img style="display:flex" src="static/images/IMG_20221018_095532.jpg" width="80px" height="80px" alt=""> <p>Tools & Machines</p></a></li>
+      <li class="category-list-item category-list-item5"><a href=""><img style="display:flex" src="static/images/IMG_20221018_095532.jpg" width="80px" height="80px" alt=""> <p>Farm Land</p></a></li>
+    </ul> -->
+    
+    <!-- <div class="my-card">
+      <div>
+        {% for listing in listings %}
+        <a href="{% url 'listing' listing.id %}" class="listing-icon">
+          <div class="card mb-3"  >
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{ listing.ListingImage.url }}" width="333px" height="50px" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <p class="card-text"> <span class="name">{{ listing.Name }}</span></p>
+                  <h5 class="card-title"><span class="cost"> {{ listing.MonthlyRate }}/= Kes Per Month </span></h5>
+                  <p class="card-text"><small class="text-muted">{{ listing.NumberOfBedrooms }} Bedrooms</small></p>
+                  <p class="card-text"><small class="text-muted">{{ listing.AreaOccupied }} metres squared</small></p>
+                  <p>ownerimage callicon  email</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div> -->
+    
+</body>
+</html>
+
+{% endblock %}
+
+
+
+
+
+

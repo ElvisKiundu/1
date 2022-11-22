@@ -1,0 +1,118 @@
+{% extends 'Home/Base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    /* listing card and items */
+    .listing-icon{
+        text-decoration: none;
+      }
+    
+      .listing-cost{
+        color: #f3700c ;
+        font-size: 1.5em;
+        font-weight: 600;
+      }
+    
+      .listing-name{
+        color: #071380;
+        font-weight: 900;
+        font-size: 1.3em;
+      }
+
+
+      /* New category */
+      .container{
+        width: 100%;
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+        border: 1px solid rgb(207, 205, 205);
+        margin-bottom: 5px;
+      }
+
+      .box{
+        width:50% ;
+        float: left;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 10px;
+        
+      }
+
+      .clearfix{
+        clear: both;
+      }
+
+      .listing-image{
+        width: 330px;
+        height: 200px;
+      }
+
+      @media screen and (max-width: 768px) {
+        .box1{
+          width:100%;
+          
+        }
+        .box2{
+          width: 100%;
+        }
+        .listing-image{
+          width: 250px;
+          height: 200px;
+          margin-left: auto;
+        }
+      }
+</style>
+
+{% if Searched %}
+
+    {% for listing in listings %}
+    <!-- name search -->
+    <div class="container">
+        <div class="box box1" ><a href="{% url 'listing' listing.id %}"><img class="listing-image" src="{{ listing.ListingImage.url }}" width="333px" height="50px" class="img-fluid rounded-start" alt="..."></a></div>
+        <div class="box box2" >
+          <p class="card-text"> <span class="listing-name">{{ listing.Name }}</span></p>
+          <h5 class="card-title"><span class="listing-cost"> {{ listing.MonthlyRate }}/= Kes Per Month </span></h5>
+          <p class="card-text"><small class="text-muted">{{ listing.NumberOfBedrooms }} Bedrooms</small></p>
+          <p class="card-text"><small class="text-muted">{{ listing.AreaOccupied }} metres squared</small></p>
+          <p>ownerimage callicon  email</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    {% endfor %}
+    
+    <!-- cost search -->
+
+    {% for withcost_listing in withcost_listings %}
+
+    <div class="container">
+        <div class="box box1" ><a href="{% url 'listing' withcost_listing.id %}"><img class="listing-image" src="{{ withcost_listing.ListingImage.url }}" width="333px" height="50px" class="img-fluid rounded-start" alt="..."></a></div>
+        <div class="box box2" >
+          <p class="card-text"> <span class="listing-name">{{ withcost_listing.Name }}</span></p>
+          <h5 class="card-title"><span class="listing-cost"> {{ withcost_listing.MonthlyRate }}/= Kes Per Month </span></h5>
+          <p class="card-text"><small class="text-muted">{{ withcost_listing.NumberOfBedrooms }} Bedrooms</small></p>
+          <p class="card-text"><small class="text-muted">{{ withcost_listing.AreaOccupied }} metres squared</small></p>
+          <p>ownerimage callicon  email</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    {% endfor %}
+{% else %}
+
+You haven't searched for any listing
+
+{% endif %}
+
+<p>search results</p>
+    
+
+    
+
+{% endblock %}

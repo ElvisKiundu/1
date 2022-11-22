@@ -1,0 +1,58 @@
+{% load static %}
+
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
+
+  /* .my-footer{
+    position: fixed;
+  } */
+
+
+
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="{% static 'bootstrap.css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'bootstrap.js' %}"> -->
+</head>
+<body>
+  {% include 'Home/Navbar.html' %}
+  
+      {% if messages %}
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+      {% endif %}
+  
+  {% block content %}
+  
+  {% endblock %}
+  <style>
+    .my-footer{
+      background-color: #4859f0;
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    
+  </style>
+  <div class="my-footer">
+    <ul style="list-style: none; margin-left: 20px;">
+      <li style="padding-bottom: 7px;">Add a Property for rent</li>
+      <li style="padding-bottom: 7px;">Contact</li>
+      <li style="padding-bottom: 7px;">Follow us Ig Fb LIn</li>
+      <li style="color: #000; font-weight:600 ">Copyright</li>
+    </ul>
+  </div>
+</body>
+   

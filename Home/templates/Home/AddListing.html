@@ -1,0 +1,71 @@
+{% extends 'Home/Base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- {% if submitted %}
+    <centre>
+        <div class="container">
+            <h1>Congratulations, your Rentee has been added successfully</h1>
+            {% else %}
+                <form action="" method="post" enctype="multipart/form-data" >
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    <input type="submit", value="submit", class="btn btn-secondary" >
+                </form>
+                <form action=""  method="post"></form>     
+        </div>
+
+
+        
+    </centre>
+    
+    
+    {% endif %} -->
+    
+
+
+
+
+    <form class="listing-form" action="" method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+        <div class="listing-box">
+            <label for="">Enter your listing name</label><br>
+            <input type="text" name="Name" placeholder="Listing name" >
+        </div>
+        <div class="listing-box">
+            <label for="">Where is your listing located?</label><br>
+            <input type="text" name="Location" placeholder="Listing location" >
+        </div>
+        <div class="listing-box">
+            <label for="">Describe your listing</label><br>
+            <textarea name="Description" >Listing description </textarea>
+        </div>
+        <div class="listing-box">
+            <label for="">What is the monthly cost of your listing?</label><br>
+            <input type="text" name="MonthlyRate" placeholder="Monthly cost" >
+        </div>
+        <div class="listing-box">
+            <label for="">Upload image representation of your listing</label><br>
+            <input type="file" name="ListingImage" placeholder="Listing image" >
+        </div>
+        <div class="listing-box">
+            <label for="">How many Bedrooms does your listing have?</label><br>
+            <input type="text" name="NumberOfBedrooms" placeholder="Number of Bedrooms" >
+        </div>
+        <div class="listing-box">
+            <label for="">Enter the contact number for the listing</label><br>
+            <input type="text" name="Contact" placeholder="Contact number" >
+        </div>
+        <div class="listing-box">
+            <label for="">What is the size of the listing in square metres</label><br>
+            <input type="text" name="AreaOccupied" placeholder="Listing size" >
+        </div>
+        <div class="listing-box">
+            <button type="submit">Submit your listing</button>
+        </div>
+        
+    </form>
+
+{% endblock %}
