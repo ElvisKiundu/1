@@ -1,0 +1,40 @@
+{% extends 'Home/Base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .signup-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 250px;
+    }
+
+</style>
+
+<br><br>
+{% if form.errors %}
+    <p>There was an error with your registration details. Try again!</p>
+{% endif %}
+<div class="signup-form">
+    <form  style="margin: 15px;" action="{% url 'signup' %}" method="post" >
+        {% csrf_token %}
+        <div>
+            {{ form }}
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Signup</button>
+        </div>
+            
+    </form>
+</div>
+
+
+    
+
+    
+
+{% endblock %}
+ 

@@ -1,0 +1,32 @@
+{% extends 'Home/Home.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<center><h3>Login</h3></center><br> 
+
+<center>
+  <div class="container" style="margin-bottom: 250px;">
+    <div class="card mb-3" style="max-width: 540px; border: 2px solid rgb(230, 252, 230);">
+      <div class="card-body">
+        <form action="" method="post" style="color: white;" >
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3" style="margin-top: 10px;">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password">
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin: 10px; background-color: #f3700c; border: 0px; border-radius:3px"> <span style="padding:7PX;  font-size:1.5em; ">Login</span> </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+</center>
+
+
+{% endblock %}
