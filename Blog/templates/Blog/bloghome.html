@@ -1,0 +1,94 @@
+{% extends 'Home/Base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .blogbody{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding-left: 150px;
+        padding-right: 150px;
+        line-height: 1.5em;
+    }
+
+    .bloglink-container{
+        padding-top: 10px;
+    }
+
+    .bloglink{
+        border:solid 3px #f3700c;
+        line-height: 1.4em;
+        border-radius: 5px;
+    }
+
+    .blogimage{
+        width: 100%;
+        max-height:400px;
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    .blogtitle{
+       display: flex;
+       justify-content: center;
+       font-weight: 700;
+       color: #071380;
+       text-decoration: none;
+       font-size: 1.4em;
+       padding-top: 20px;
+       padding-bottom: 15px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .blogbody{
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+      }
+</style>
+
+<div class="blogbody">
+    <div class="bloglink-container">
+        <a class="bloglink" href="{% url 'Finding_a_new_home' %}">Finding a new home</a>
+    </div>
+    <p class="blogtitle">FINDING YOUR NEW HOME</p>
+    <div class="blogimage-container">
+        <img class="blogimage"  src="/static/Blog/images/pexels-photo-12527642.jpeg" alt="">
+        <img class="blogimage"  src="/static/Blog/images/pexels-photo-9899896.jpeg" alt="">
+    </div>
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        <br>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        <br>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        <br><br>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+       <div><img class="blogimage" src="/static/Blog/images/pexels-photo-12700527.jpeg" alt=""></div> 
+        <br><br><br><br>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quisquam nesciunt cupiditate alias, optio, corrupti odio dolores recusandae placeat architecto amet nulla iure laudantium! Corrupti doloremque assumenda illum ipsum dicta!
+
+         odio dolores recusandae placeat architecto amet nulla iure laud
+    </p>
+</div>
+
+{% endblock %}
